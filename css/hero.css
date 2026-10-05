@@ -1,0 +1,926 @@
+
+/* =========================================================
+   SAN ENGINEERING — TEMPLATE 3
+   HERO / VIDEO SLIDER
+   File: css/hero.css
+========================================================= */
+
+
+/* =========================================================
+   01. HERO SECTION
+========================================================= */
+
+.hero-section {
+
+    position: relative;
+
+    width: 100%;
+
+    height: 100vh;
+
+    min-height: 680px;
+
+    overflow: hidden;
+
+    background: var(--color-white);
+}
+
+
+/* =========================================================
+   02. HERO SLIDER
+========================================================= */
+
+.hero-slider {
+
+    position: relative;
+
+    width: 100%;
+
+    height: 100%;
+}
+
+
+/* =========================================================
+   03. HERO SLIDE LAYOUT
+   KEEP ALL THREE HERO SLIDES IN THE SAME
+   TYPOGRAPHIC AND TWO-COLUMN POSITION
+========================================================= */
+
+.hero-slide {
+
+    position: absolute;
+
+    inset: 0;
+
+    width: 100%;
+
+    height: 100%;
+
+    visibility: hidden;
+
+    opacity: 0;
+
+    transition: opacity 0.35s ease;
+
+}
+
+
+.hero-slide.is-active {
+
+    visibility: visible;
+
+    opacity: 1;
+
+}
+
+
+/* =========================================================
+   04. HERO VIDEO
+   SAME FOR ALL 3 HERO SLIDES
+========================================================= */
+
+.hero-video {
+
+    position: absolute;
+
+    top: 50%;
+
+    left: 53%;
+
+    width: min(
+        560px,
+        40vw
+    );
+
+    height: 340px;
+
+    object-fit: cover;
+
+    object-position: center;
+
+    transform: translateY(-50%);
+
+    display: block;
+
+    background: #000000;
+
+    border: 0;
+
+    box-shadow: none;
+}
+
+
+/* =========================================================
+   05. REMOVE HERO OVERLAY
+   ORIGINAL VIDEO REMAINS CLEAR
+========================================================= */
+
+.hero-overlay {
+
+    display: none;
+}
+
+
+.hero-slide::before,
+.hero-slide::after {
+
+    content: none;
+
+    display: none;
+}
+
+
+/* =========================================================
+   06. HERO CONTENT
+   SAME FOR ALL 3 HERO SLIDES
+========================================================= */
+
+.hero-content {
+
+    position: absolute;
+
+    z-index: 3;
+
+    top: 50%;
+
+    left: max(
+        40px,
+        calc((100vw - var(--container-width)) / 2)
+    );
+
+    width: min(
+        620px,
+        47%
+    );
+
+    max-width: 620px;
+
+    transform: translateY(-50%);
+}
+
+
+/* =========================================================
+   07. HERO EYEBROW
+========================================================= */
+
+.hero-eyebrow {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 14px;
+
+    margin-bottom: 28px;
+
+    color: #2A2A2A;
+
+    font-family: var(--font-mono);
+
+    font-size: 16px;
+
+    font-weight: 700;
+
+    letter-spacing: 0.12em;
+
+    line-height: 1.4;
+}
+
+
+.hero-eyebrow::before {
+
+    content: "";
+
+    width: 40px;
+
+    height: 2px;
+
+    flex-shrink: 0;
+
+    background: var(--color-purple);
+}
+
+
+/* =========================================================
+   08. HERO MAIN TYPOGRAPHY
+========================================================= */
+
+.hero-content h1,
+.hero-content h2 {
+
+    max-width: 620px;
+
+    color: #1F1F1F;
+
+    font-family: var(--font-primary);
+
+    font-size: clamp(
+        52px,
+        5.8vw,
+        88px
+    );
+
+    font-weight: 500;
+
+    letter-spacing: -0.055em;
+
+    line-height: 0.98;
+}
+
+
+.hero-content h1 span,
+.hero-content h2 span {
+
+    display: block;
+
+    color: var(--color-purple);
+}
+
+
+/* =========================================================
+   09. HERO DESCRIPTION
+========================================================= */
+
+.hero-description {
+
+    max-width: 540px;
+
+    margin-top: 30px;
+
+    color: #303030;
+
+    font-size: 19px;
+
+    font-weight: 400;
+
+    line-height: 1.75;
+}
+
+
+/* =========================================================
+   10. VIDEO CONTROLS
+   SAME FOR ALL 3 HERO SLIDES
+========================================================= */
+
+.hero-video-controls {
+
+    position: absolute;
+
+    z-index: 6;
+
+    left: 53%;
+
+    bottom: 42px;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 8px;
+
+    width: min(
+        560px,
+        40vw
+    );
+
+    padding: 9px 11px;
+
+    background: rgba(
+        255,
+        255,
+        255,
+        0.94
+    );
+
+    border: 1px solid rgba(
+        67,
+        56,
+        120,
+        0.18
+    );
+
+    box-sizing: border-box;
+}
+
+
+/* =========================================================
+   11. VIDEO CONTROL BUTTONS
+========================================================= */
+
+.hero-video-button {
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    flex: 0 0 auto;
+
+    width: 32px;
+
+    height: 32px;
+
+    padding: 0;
+
+    border: 0;
+
+    background: transparent;
+
+    color: #2A2A2A;
+
+    font-family: Arial, sans-serif;
+
+    font-size: 14px;
+
+    line-height: 1;
+
+    cursor: pointer;
+
+    transition:
+        color var(--transition-fast),
+        background var(--transition-fast);
+}
+
+
+.hero-video-button:hover {
+
+    background: var(--color-purple);
+
+    color: var(--color-white);
+}
+
+
+.hero-video-button:focus-visible {
+
+    outline: 2px solid var(--color-purple);
+
+    outline-offset: 2px;
+}
+
+
+/* =========================================================
+   12. PLAY ICON
+========================================================= */
+
+.hero-video-play-icon {
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    font-size: 12px;
+
+    line-height: 1;
+}
+
+
+/* =========================================================
+   13. VIDEO PROGRESS
+========================================================= */
+
+.hero-video-progress {
+
+    flex: 1 1 auto;
+
+    min-width: 70px;
+
+    display: flex;
+
+    align-items: center;
+}
+
+
+.hero-video-seek {
+
+    width: 100%;
+
+    height: 3px;
+
+    margin: 0;
+
+    padding: 0;
+
+    cursor: pointer;
+
+    accent-color: var(--color-purple);
+}
+
+
+/* =========================================================
+   14. VIDEO VOLUME
+========================================================= */
+
+.hero-video-volume {
+
+    width: 58px;
+
+    height: 3px;
+
+    margin: 0;
+
+    padding: 0;
+
+    cursor: pointer;
+
+    accent-color: var(--color-purple);
+}
+
+
+/* =========================================================
+   15. RANGE INPUTS
+========================================================= */
+
+.hero-video-seek,
+.hero-video-volume {
+
+    appearance: none;
+
+    -webkit-appearance: none;
+
+    background: rgba(
+        67,
+        56,
+        120,
+        0.20
+    );
+}
+
+
+.hero-video-seek::-webkit-slider-thumb,
+.hero-video-volume::-webkit-slider-thumb {
+
+    appearance: none;
+
+    -webkit-appearance: none;
+
+    width: 10px;
+
+    height: 10px;
+
+    border: 0;
+
+    border-radius: 50%;
+
+    background: var(--color-purple);
+
+    cursor: pointer;
+}
+
+
+.hero-video-seek::-moz-range-thumb,
+.hero-video-volume::-moz-range-thumb {
+
+    width: 10px;
+
+    height: 10px;
+
+    border: 0;
+
+    border-radius: 50%;
+
+    background: var(--color-purple);
+
+    cursor: pointer;
+}
+
+
+/* =========================================================
+   16. HERO SLIDE CONTROLS
+========================================================= */
+
+.hero-controls {
+
+    position: absolute;
+
+    z-index: 5;
+
+    right: max(
+        40px,
+        calc((100vw - var(--container-width)) / 2)
+    );
+
+    bottom: 50px;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 14px;
+}
+
+
+/* =========================================================
+   17. HERO ARROW BUTTONS
+========================================================= */
+
+.hero-control {
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    width: 54px;
+
+    height: 54px;
+
+    border: 1px solid rgba(
+        67,
+        56,
+        120,
+        0.30
+    );
+
+    background: rgba(
+        255,
+        255,
+        255,
+        0.92
+    );
+
+    color: #2A2A2A;
+
+    font-family: Arial, sans-serif;
+
+    font-size: 34px;
+
+    font-weight: 400;
+
+    line-height: 1;
+
+    cursor: pointer;
+
+    transition:
+        background var(--transition-fast),
+        color var(--transition-fast),
+        border-color var(--transition-fast),
+        transform var(--transition-fast);
+}
+
+
+.hero-control:hover {
+
+    border-color: var(--color-purple);
+
+    background: var(--color-purple);
+
+    color: var(--color-white);
+
+    transform: translateY(-2px);
+}
+
+
+.hero-control:active {
+
+    transform: translateY(0);
+}
+
+
+/* =========================================================
+   18. SLIDE INDICATORS
+========================================================= */
+
+.hero-indicators {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 8px;
+
+    padding: 0 5px;
+}
+
+
+.hero-indicator {
+
+    width: 8px;
+
+    height: 8px;
+
+    padding: 0;
+
+    border: 1px solid #433878;
+
+    border-radius: 50%;
+
+    background: transparent;
+
+    opacity: 0.60;
+
+    cursor: pointer;
+
+    transition:
+        width var(--transition-fast),
+        border-radius var(--transition-fast),
+        background var(--transition-fast),
+        opacity var(--transition-fast);
+}
+
+
+.hero-indicator.is-active {
+
+    width: 25px;
+
+    border-radius: 10px;
+
+    background: var(--color-purple);
+
+    border-color: var(--color-purple);
+
+    opacity: 1;
+}
+
+
+/* =========================================================
+   19. TABLET
+========================================================= */
+
+@media (max-width: 980px) {
+
+    .hero-section {
+
+        min-height: 620px;
+    }
+
+
+    .hero-content {
+
+        left: 40px;
+
+        width: 48%;
+
+        max-width: 500px;
+    }
+
+
+    .hero-video {
+
+        left: 54%;
+
+        width: 41vw;
+
+        max-width: 440px;
+
+        height: 290px;
+    }
+
+
+    .hero-video-controls {
+
+        left: 54%;
+
+        bottom: 30px;
+
+        width: 41vw;
+
+        max-width: 440px;
+    }
+
+
+    .hero-eyebrow {
+
+        font-size: 14px;
+
+        letter-spacing: 0.11em;
+    }
+
+
+    .hero-content h1,
+    .hero-content h2 {
+
+        font-size: clamp(
+            46px,
+            8vw,
+            72px
+        );
+    }
+
+
+    .hero-description {
+
+        max-width: 480px;
+
+        font-size: 17px;
+    }
+
+
+    .hero-controls {
+
+        right: 40px;
+
+        bottom: 35px;
+    }
+
+}
+
+
+/* =========================================================
+   20. MOBILE
+========================================================= */
+
+@media (max-width: 600px) {
+
+    .hero-section {
+
+        min-height: 650px;
+
+        height: auto;
+    }
+
+
+    .hero-slide {
+
+        min-height: 650px;
+
+        height: 650px;
+    }
+
+
+    .hero-content {
+
+        top: 32%;
+
+        left: 20px;
+
+        width: calc(100% - 40px);
+
+        max-width: none;
+
+        transform: translateY(-50%);
+    }
+
+
+    .hero-eyebrow {
+
+        gap: 9px;
+
+        margin-bottom: 18px;
+
+        font-size: 11px;
+
+        font-weight: 700;
+
+        letter-spacing: 0.08em;
+
+        line-height: 1.4;
+    }
+
+
+    .hero-eyebrow::before {
+
+        width: 24px;
+
+        height: 2px;
+    }
+
+
+    .hero-content h1,
+    .hero-content h2 {
+
+        max-width: 100%;
+
+        font-size: clamp(
+            38px,
+            10.5vw,
+            56px
+        );
+
+        line-height: 1;
+    }
+
+
+    .hero-description {
+
+        max-width: 100%;
+
+        margin-top: 22px;
+
+        font-size: 16px;
+
+        line-height: 1.6;
+    }
+
+
+    /* =============================================
+       MOBILE VIDEO
+    ============================================== */
+
+    .hero-video {
+
+        top: auto;
+
+        left: 20px;
+
+        bottom: 105px;
+
+        width: calc(100% - 40px);
+
+        max-width: none;
+
+        height: 210px;
+
+        transform: none;
+    }
+
+
+    .hero-video-controls {
+
+        left: 20px;
+
+        right: 20px;
+
+        bottom: 75px;
+
+        width: auto;
+
+        max-width: none;
+
+        gap: 4px;
+
+        padding: 7px 8px;
+    }
+
+
+    .hero-video-button {
+
+        width: 29px;
+
+        height: 29px;
+
+        font-size: 12px;
+    }
+
+
+    .hero-video-progress {
+
+        min-width: 45px;
+    }
+
+
+    .hero-video-volume {
+
+        width: 38px;
+    }
+
+
+    .hero-controls {
+
+        right: 20px;
+
+        bottom: 25px;
+
+        gap: 8px;
+    }
+
+
+    .hero-control {
+
+        width: 46px;
+
+        height: 46px;
+
+        font-size: 28px;
+    }
+
+
+    .hero-indicators {
+
+        gap: 6px;
+    }
+
+
+    .hero-indicator {
+
+        width: 7px;
+
+        height: 7px;
+    }
+
+
+    .hero-indicator.is-active {
+
+        width: 20px;
+    }
+
+}
+
+
+/* =========================================================
+   21. REDUCED MOTION
+========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+    .hero-slide,
+    .hero-video-button {
+
+        transition: none;
+    }
+
+}
+
